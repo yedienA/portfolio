@@ -1,23 +1,29 @@
-
+/* Kleurenschema */
 :root {
-  --primary: #00f0ff; 
-  --secondary: #000e8f;
-  --dark: #0d0d0d;   
-  --darker: #070707;   
-  --light: #f0f0f0;    
-  --card: #1a1a1a;     
+  --primary: #00f0ff; /* Light blue */
+  --secondary: #000e8f; /* Dark blue */
+  --dark: #0d0d0d; /* Dark background */
+  --darker: #070707; /* Darker background */
+  --light: #f0f0f0; /* Light text */
+  --card: #1a1a1a; /* Card background */
 }
 
+/* Basisstijlen */
 body {
   font-family: 'Inter', sans-serif;
   background: var(--dark);
   color: var(--light);
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
 }
 
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Responsive grid */
 .grid-container {
   display: grid;
   grid-template-areas:
@@ -25,188 +31,60 @@ body {
     "content"
     "footer";
   min-height: 100vh;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-
-
-header {
-  padding: 32px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-header h1 {
-  font-size: 40px;
-  margin-bottom: 8px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  padding: 16px;
-}
-
-nav a {
-  color: var(--light);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: all 300ms;
-}
-
-nav a:hover {
-  color: var(--primary);
-  background: rgba(0, 240, 255, 0.1);
-}
-
-.project-section {
-  padding: 32px;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  margin-top: 32px;
-}
-
+/* Project cards */
 .project-card {
-  background: var(--card);
-  border-radius: 8px;
-  padding: 24px;
+  transition: transform 0.3s;
   border-left: 3px solid var(--primary);
-  transition: transform 300ms;
 }
 
-
-.tech-tags {
-  display: flex;
-  gap: 8px;
-  margin-top: 16px;
-  flex-wrap: wrap;
+.project-card:hover {
+  transform: translateY(-5px);
 }
 
-.tech-tag {
-  background: rgba(0, 240, 255, 0.1);
-  color: var(--primary);
-  padding: 5px 13px;
-  border-radius: 20px;
-  font-size: 13px;
-}
-
-.contact-form {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 16px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 13px;
-  background: var(--darker);
-  border: 1px solid var(--card);
-  color: var(--light);
+/* Kleurvakjes */
+.color-box {
+  width: 50px;
+  height: 50px;
   border-radius: 4px;
 }
 
-button {
-  background: var(--primary);
+/* Bootstrap aanpassingen */
+.nav-link {
+  transition: all 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--primary) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
   color: var(--dark);
-  border: none;
-  padding: 13px 24px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
 }
 
-button:hover {
-  background: var(--secondary);
+.btn-primary:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
 }
 
-
-footer {
-  text-align: center;
-  padding: 32px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+/* Formulier stijlen */
+.form-control {
+  background: var(--card);
   color: var(--light);
-  opacity: 0.7;
+  border: 1px solid #333;
 }
 
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(0, 240, 255, 0.25);
+}
 
+/* Responsive aanpassingen */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-  }
-  
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  header h1 {
-    font-size: 32px;
-  }
-}
-
-
-.about-me img {
-  max-width: 200px;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto 20px;
-}
-
-.skills ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
-
-.contact-form {
-  grid-column: span 2;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-button[type="submit"] {
-  background: var(--primary);
-  color: var(--dark);
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .contact-form {
-    grid-column: span 1;
-  }
-  
-  .about-me, .skills, .education {
-    grid-column: span 1;
+  .display-4 {
+    font-size: 2.5rem;
   }
 }
